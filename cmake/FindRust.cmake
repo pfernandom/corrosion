@@ -604,7 +604,7 @@ if(NOT ( "${_RUSTC_VERSION_RESULT}" EQUAL "0" ))
         "${Rust_COMPILER_CACHED} --version failed with error: `${_RUSTC_VERSION_RESULT}`")
 endif()
 
-if (_RUSTC_VERSION_RAW MATCHES "rustc ([0-9]+)\\.([0-9]+)\\.([0-9]+)(-nightly)?")
+if (_RUSTC_VERSION_RAW MATCHES "rustc ([0-9]+)\\.([0-9]+)\\.([0-9]+)(-nightly)?(\\s*\(.*\)?)?")
     set(Rust_VERSION_MAJOR "${CMAKE_MATCH_1}" CACHE INTERNAL "" FORCE)
     set(Rust_VERSION_MINOR "${CMAKE_MATCH_2}" CACHE INTERNAL "" FORCE)
     set(Rust_VERSION_PATCH "${CMAKE_MATCH_3}" CACHE INTERNAL "" FORCE)
