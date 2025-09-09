@@ -354,7 +354,7 @@ if (Rust_RESOLVE_RUSTUP_TOOLCHAINS)
                     "${_TOOLCHAIN_PATH}/bin/rustc" --version
                     OUTPUT_VARIABLE _TOOLCHAIN_RAW_VERSION
             )
-            if (_TOOLCHAIN_RAW_VERSION MATCHES "rustc ([0-9]+)\\.([0-9]+)\\.([0-9]+)(-nightly)?")
+            if (_TOOLCHAIN_RAW_VERSION MATCHES "rustc ([0-9]+)\\.([0-9]+)\\.([0-9]+)(-nightly)?(\\s*\(.*\)?)?")
                 list(APPEND _DISCOVERED_TOOLCHAINS "${_TOOLCHAIN}")
                 list(APPEND _DISCOVERED_TOOLCHAINS_RUSTC_PATH "${_TOOLCHAIN_PATH}/bin/rustc")
                 list(APPEND _DISCOVERED_TOOLCHAINS_VERSION "${CMAKE_MATCH_1}.${CMAKE_MATCH_2}.${CMAKE_MATCH_3}")
